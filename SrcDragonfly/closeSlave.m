@@ -15,7 +15,7 @@ function closeSlave(Parallel,TmpFolder,partial),
 % OUTPUTS
 %   None
 %
-% Copyright (C) 2010-2011 Dynare Team
+% Copyright (C) 2010-2016 Dynare Team
 %
 % This file is part of Dynare.
 %
@@ -31,6 +31,7 @@ function closeSlave(Parallel,TmpFolder,partial),
 %
 % You should have received a copy of the GNU General Public License
 % along with Dynare.  If not, see <http://www.gnu.org/licenses/>.
+
 if nargin<3,
     partial=0;
 end
@@ -51,7 +52,7 @@ if partial==-1
     delete('slaveParallel_break.mat')
     for indPC=1:length(Parallel),
         if (Parallel(indPC).Local==0),
-   %         dynareParallelDelete( 'slaveParallel_break.mat',TmpFolder,Parallel(indPC));
+            dynareParallelDelete( 'slaveParallel_break.mat',TmpFolder,Parallel(indPC));
         end
     end
 %     delete('slaveParallel_break')
@@ -62,16 +63,16 @@ end
 
 for indPC=1:length(Parallel),
     if (Parallel(indPC).Local==0),
-    %    dynareParallelDelete( 'slaveParallel_input*.mat',TmpFolder,Parallel(indPC));
+       % dynareParallelDelete( 'slaveParallel_input*.mat',TmpFolder,Parallel(indPC));
     end
     
     % TO FIX ...
    
     pause(1);
-   % delete( 'slaveParallel_input*.mat');
-   % pause(1);
-   % delete(['slaveParallel_*.log']);
-   % delete ConcurrentCommand1.bat;
+    %delete( 'slaveParallel_input*.mat');
+    % pause(1);
+    %delete(['slaveParallel_*.log']);
+    %delete ConcurrentCommand1.bat;
     
 end
 
@@ -79,7 +80,7 @@ while(1)
     if isempty(dynareParallelDir(['P_slave_',int2str(j),'End.txt'],TmpFolder,Parallel));
         for indPC=1:length(Parallel),
             if (Parallel(indPC).Local==0),
-                % dynareParallelRmDir(TmpFolder,Parallel(indPC)),    
+        %        dynareParallelRmDir(TmpFolder,Parallel(indPC)),    
             end
         end
         break

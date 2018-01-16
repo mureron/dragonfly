@@ -3,6 +3,10 @@ function DRAGONFLY_Parallel_Block_End(foutEnlarged,varargin);
 % FUNCTION DESCRIPTION
 % This function ...
 
+% Developed by Marco Ratto and Ivanno Azzini
+% Modified by Ronal Muresano 2015
+
+
 % INPUTS
 % o   ...                           ...
 %
@@ -29,16 +33,17 @@ end
 % Output data concatenation (reshape) ...
 % varargin
 if nargin>1
-        for i=1:length(varargin)
+         for i=1:length(varargin)
             if isfield(foutEnlarged.fout, varargin{i})
                 if (strcmp(varargin{i+1},'0')) % Concatenating the Data in row format
                     vTempGlo=[];
-                    for j=1:foutEnlarged.AddOutInf.totCPU
+                    %for j=1:foutEnlarged.AddOutInf.totCPU
+                    for j=1:size(foutEnlarged.AddOutInf.totCPU,1)
                          vTempGlo=[vTempGlo;foutEnlarged.fout(j).([varargin{i}])];
                     end
                 else  % Concatenating the Data in Colum format
                     vTempGlo=[];
-                   for j=1:foutEnlarged.AddOutInf.totCPU
+                   for j=1:size(foutEnlarged.AddOutInf.totCPU,1)
                         vTempGlo=[vTempGlo foutEnlarged.fout(j).([varargin{i}])];
                    end
                 end

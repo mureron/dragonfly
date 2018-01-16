@@ -123,23 +123,29 @@ end
 % Retrive information about the function caller.
 
 % The dbstack has to be reviewed, I don't know why but IK have to do it
-fCallerInformation=evalin('caller', 'dbstack(1)');
 if (strcmp(Parallel.OperatingSystem, 'unix'))
+  fCallerInformation=evalin('caller', 'dbstack(1)');
   fNamestr=strfind(fCallerInformation.file,'/');
   if ~isempty(fNamestr)
     fName=fCallerInformation.file((fNamestr(end)+1):end);
   else
  	fName=fCallerInformation.file;
   end
+#  fPath=[evalin('caller', 'pwd') '/'];
   fPathAndName=[evalin('caller', 'pwd') '/' fName];
+  fID=fopen(fPathAndName);
 else
+  fCallerInformation=evalin('caller', 'dbstack(1)');
   fName=fCallerInformation.file;
   fPathAndName=[evalin('caller', 'pwd') '\' fName];
 end
 fID=fopen(fPathAndName);
 fContent=fscanf(fID,'%c');
 
-% Remove the comment in matlab code ...
+
+
+
+% Remouve the comment in matlab code ...
 % This step is necessary to remouve the Parallel keywords descriptions.
 warning('OFF');
 fContent=mlstripcommentsstr(fContent);

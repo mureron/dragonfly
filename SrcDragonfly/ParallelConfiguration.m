@@ -19,6 +19,8 @@ function [SomeOutput] = ParallelConfiguration(In1,In2,In3,In4,In5)
 % Copyright (C) 2009-2011 Dynare Team
 %
 % This file is part of Dynare.
+% Developed by Marco Ratto and Ivanno Azzini
+% Modified by Ronal Muresano 2015
 %
 % Dynare is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -189,7 +191,9 @@ if exist('OCTAVE_VERSION'),
     warning('off');
 end
 
+
 [Parallel ErrorCode] = ParallelParser(Parallel_info.ConfigurationFileName,Parallel_info.ClusterName);
+
 
 if (ErrorCode)
     Parallel=[];

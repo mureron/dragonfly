@@ -114,6 +114,9 @@ if isempty(Parallel) || isempty(Parallel_info)
     % The contained the "finish.m" file, used to close, if exist
     % the slaves. This code must be execut onfly by "master" Matalab!
     
+    parallelroot = strrep(which('ParallelConfiguration'),'ParallelConfiguration.m','');
+    Parallel_info.parallelroot=parallelroot;
+    % To close the slave ...
     addpath([parallelroot,filesep,'exit_from_parallel']);
 
 end

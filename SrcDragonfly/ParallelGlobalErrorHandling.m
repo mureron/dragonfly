@@ -12,6 +12,8 @@ function [Reaction] = ParallelGlobalErrorHandling(ErrorCode)
 %
 % OUTPUT
 % o   Reaction []                A program error reaction, when necessary.
+% Developed by Marco Ratto and Ivanno Azzini
+% Modified by Ronal Muresano 2015
 
 Reaction=0;
 

@@ -11,7 +11,9 @@ function [] = ParallelMapRemoteDrive(fname)
 % [ ... ]
 %
 %
-% Copyright (C) 2009-2011 Dynare Team
+% Copyright (C) 2009-2016 Dynare Team
+% Developed by Marco Ratto and Ivanno Azzini
+% Modified by Ronal Muresano 2015
 %
 % This file is part of Dynare.
 %

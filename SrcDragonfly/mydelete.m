@@ -17,6 +17,8 @@ function mydelete(fname,pname)
 %
 % You should have received a copy of the GNU General Public License
 % along with Dynare.  If not, see <http://www.gnu.org/licenses/>.
+% Developed by Marco Ratto and Ivanno Azzini
+% Modified by Ronal Muresano 2015
 
 if nargin ==0,
     disp('mydelete(fname)')
